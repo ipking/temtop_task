@@ -40,6 +40,7 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 		var $sku = $("[name=sku]");
 		//三在一中
 		$("#prd_sku_three_and_one").click(function () {
+			$("#prd_sku_three_and_one_re").html('');
 			var sku = $sku.val();
 			
 			Net.get("<?=ViewBase::getUrl("task/prd_sku_three_and_one")?>",{sku:sku},function (data) {
