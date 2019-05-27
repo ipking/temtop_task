@@ -34,10 +34,6 @@ class ViewBase extends View{
 	 */
 	public static function getUrl($uri = '', $param = array()){
 		$url = parent::getUrl($uri, $param);
-		$flag = CurrentUser::getUrlAccessFlag($uri);
-		if($flag){
-			$url = '#'.$flag;
-		}
 		return $url;
 	}
 	

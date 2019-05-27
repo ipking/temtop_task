@@ -27,7 +27,6 @@ $FRONTEND_BASE = Config::get('app/cdn_url'); ?>
 	<!-- Iconfont字体图标JS -->
 	<script src="//at.alicdn.com/t/font_1059711_53z5i0nvxw4.js"></script>
 	<!-- 几个项目公用样式（包含自定义主题功能） -->
-	<?=ViewStyle::getStyle([$FRONTEND_BASE."mytemtop/css/style.less"],'blue')?>
 	<!-- 当前项目全局样式 -->
   <?= $this->getCss('style.css')?>
 	<script>
@@ -61,25 +60,6 @@ $FRONTEND_BASE = Config::get('app/cdn_url'); ?>
 				<span class="site-name"><?=Config::get('app/site_name')?></span>
 			</a>
 		</h1>
-		<?php if(true || CurrentUser::instance()->getLoginInfo()):
-			?>
-			<?php include ViewBase::resolveTemplate('inc/nav.inc.php');?>
-			<!-- 个人信息 -->
-			<ul class="account-nav" id="account-nav">
-				<li class="has-child">
-					<svg class="icon" aria-hidden="true">
-						<use xlink:href="#iconicon_20" id="iconicon_20"></use>
-					</svg>
-					<span class="account-name"><?=CurrentUser::getUserName()?></span>
-					<ul>
-						<li><a href="<?=ViewBase::getUrl("user/user/myInfo",['id'=>CurrentUser::getUserId()]);?>" data-component="popup" data-popup-width="500">用户信息</a></li>
-						<li><a href="<?=ViewBase::getUrl("user/user/updatePwd");?>" data-component="popup">修改密码</a></li>
-						<li><a href="<?=ViewBase::getUrl("index/logout");?>" data-component="async">退出</a></li>
-					</ul>
-				</li>
-			</ul>
-			
 		
-		<?php endif;?>
 	</header>
 	<?=ViewBase::getPageBreadCrumbs();?>

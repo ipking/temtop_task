@@ -11,7 +11,6 @@ use Lite\Core\View;
 use Lite\Crud\AbstractController;
 use Lite\Crud\ControllerInterface;
 use Temtop\StaticVersion;
-use ttwms\CurrentUser;
 use function Lite\func\filter_date_range;
 
 abstract class BaseController extends AbstractController{
@@ -24,7 +23,6 @@ abstract class BaseController extends AbstractController{
 					$ref->set('url', StaticVersion::buildVersion($url));
 				}
 			});
-			CurrentUser::checkAuth($ctrl, $act);
 		}
 		$paginate = Paginate::instance();
 		$paginate->page_size_flag = true;
