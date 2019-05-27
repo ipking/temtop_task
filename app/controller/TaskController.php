@@ -19,7 +19,7 @@ class TaskController extends BaseController{
 	 * @return array
 	 */
 	public function prd_sku_three_and_one($get){
-		exec("php E:/htdocs/temtop/temtopsys/lib/crontab/prd_sku_three_and_one.php --sku=".$get['sku'],$out);
+		exec("php E:/htdocs/temtop/temtopsys/lib/crontab/prd_sku_three_and_one.php --sku=".trim($get['sku']),$out);
 		return [
 			'out'=>$out
 		];
