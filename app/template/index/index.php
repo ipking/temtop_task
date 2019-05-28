@@ -12,7 +12,6 @@ ViewBase::setPagePath(['首页']);
 include ViewBase::resolveTemplate('inc/header.inc.php');
 echo ViewBase::getCss('index.css?'.date('ymd'));
 
-
 ?>
 <style>
 	.breadcrumbs {display:none;}
@@ -25,13 +24,16 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 		<div class="todo-total">
 			<ul>
 				<li>
-					<a id="prd_sku_three_and_one" href="javascript:void(0)">tbs 三在一中</a>
+					<a id="prd_sku_three_and_one" href="javascript:void(0)">ERP 三在一中</a>
 					<p id="prd_sku_three_and_one_re"></p>
+				</li>
+				<li>
+					<a id="sale_sku_three_and_one" href="javascript:void(0)">SALES 三在一中</a>
+					<p id="sale_sku_three_and_one_re"></p>
 				</li>
 			</ul>
 		</div>
 	</div>
-	
 
 </div>
 
@@ -49,6 +51,18 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 					return false;
 				}
 				$('#prd_sku_three_and_one_re').html(data.data.out);
+			})
+		});
+		$("#sale_sku_three_and_one").click(function () {
+			$("#sale_sku_three_and_one_re").html('');
+			var sku = $sku.val();
+			
+			Net.get("<?=ViewBase::getUrl("task/sale_sku_three_and_one")?>",{sku:sku},function (data) {
+				if(data.code){
+					Msg.showError(data.message);
+					return false;
+				}
+				$('#sale_sku_three_and_one_re').html(data.data.out);
 			})
 		});
 	});

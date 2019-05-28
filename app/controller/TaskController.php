@@ -25,6 +25,17 @@ class TaskController extends BaseController{
 		];
 	}
 	
+	/**
+	 * @param $get
+	 * @return array
+	 */
+	public function sale_sku_three_and_one($get){
+		exec("php E:/htdocs/temtop/temtopsys/lib/crontab/sale_sku_three_and_one.php --sku=".trim($get['sku']),$out);
+		return [
+			'out'=>$out
+		];
+	}
+	
 	
 	
 }
