@@ -24,11 +24,11 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 		<div class="todo-total">
 			<ul>
 				<li>
-					<a id="prd_sku_three_and_one" href="javascript:void(0)">ERP 三在一中</a>
+					<a id="prd_sku_three_and_one" href="javascript:void(0)">ERP(产品,供应商)系统 三在一中</a>
 					<p id="prd_sku_three_and_one_re"></p>
 				</li>
 				<li>
-					<a id="sale_sku_three_and_one" href="javascript:void(0)">SALES 三在一中</a>
+					<a id="sale_sku_three_and_one" href="javascript:void(0)">销售系统 三在一中</a>
 					<p id="sale_sku_three_and_one_re"></p>
 				</li>
 			</ul>
@@ -50,7 +50,11 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 					Msg.showError(data.message);
 					return false;
 				}
-				$('#prd_sku_three_and_one_re').html(data.data.out);
+				var html= '';
+				for(var x in data.data.out){
+					html += data.data.out[x]+'<br >';
+				}
+				$('#prd_sku_three_and_one_re').html(html);
 			})
 		});
 		$("#sale_sku_three_and_one").click(function () {
@@ -62,7 +66,11 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 					Msg.showError(data.message);
 					return false;
 				}
-				$('#sale_sku_three_and_one_re').html(data.data.out);
+				var html= '';
+				for(var x in data.data.out){
+					html += data.data.out[x]+'<br >';
+				}
+				$('#sale_sku_three_and_one_re').html(html);
 			})
 		});
 	});

@@ -2,13 +2,12 @@
 
 namespace ttwms;
 
-use Temtop\Server;
-
 return [
 	'site_name'       => '任务系统',
-	'sys_code'        => 'TTTH',
+	'sys_code'        => 'TASK',
 	'url'             => '/',
-	'debug'           => !Server::inIDC(),
+	'code_path'       => \Lite\Component\Server::inWindows()?'E:/htdocs/temtop/':'/wwwdata/',
+	'debug'           => !\Temtop\Server::inIDC(),
 	'render'          => ViewBase::class,
 	'page404'   => function ($err = null, $ex = null){
 		(new ViewBase(['error'=>$err]))->render('index/404.php', false, ViewBase::REQ_PAGE);

@@ -2,10 +2,6 @@
 namespace ttwms\controller;
 
 use Lite\Core\Config;
-use Lite\Core\Result;
-use Lite\Core\Router;
-use Lite\Exception\BizException;
-use function Temtop\array_trim;
 
 
 /**
@@ -17,9 +13,10 @@ class TaskController extends BaseController{
 	/**
 	 * @param $get
 	 * @return array
+	 * @throws \Lite\Exception\Exception
 	 */
 	public function prd_sku_three_and_one($get){
-		exec("php E:/htdocs/temtop/temtopsys/lib/crontab/prd_sku_three_and_one.php --sku=".trim($get['sku']),$out);
+		exec("php ".Config::get('app/code_path')."temtopsys/lib/crontab/prd_sku_three_and_one.php --sku=".trim($get['sku']),$out);
 		return [
 			'out'=>$out
 		];
@@ -28,14 +25,13 @@ class TaskController extends BaseController{
 	/**
 	 * @param $get
 	 * @return array
+	 * @throws \Lite\Exception\Exception
 	 */
 	public function sale_sku_three_and_one($get){
-		exec("php E:/htdocs/temtop/temtopsys/lib/crontab/sale_sku_three_and_one.php --sku=".trim($get['sku']),$out);
+		exec("php ".Config::get('app/code_path')."temtopsys/lib/crontab/sale_sku_three_and_one.php --sku=".trim($get['sku']),$out);
 		return [
 			'out'=>$out
 		];
 	}
-	
-	
 	
 }
