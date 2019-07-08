@@ -74,7 +74,7 @@ class TaskController extends BaseController{
 	 * @throws \Lite\Exception\Exception
 	 */
 	public function oms_sale_order_confirm($get){
-		exec("php ".Config::get('app/code_path')."oms/www/test/OrderTask.php asyncOrderToWms --reference_no=".trim($get['order_no']),$out);
+		exec("php ".Config::get('app/code_path')."oms/www/test/OrderTask.php asyncOrderToWms reference_no=".trim($get['order_no']),$out);
 		return [
 			'out'=>$out
 		];
@@ -86,7 +86,7 @@ class TaskController extends BaseController{
 	 * @throws \Lite\Exception\Exception
 	 */
 	public function oms_sale_order_sync($get){
-		exec("php ".Config::get('app/code_path')."oms/www/test/OrderTask.php getWmsOrder --reference_no=".trim($get['order_no']),$out);
+		exec("php ".Config::get('app/code_path')."oms/www/test/OrderTask.php getWmsOrder reference_no=".trim($get['order_no']),$out);
 		return [
 			'out'=>$out
 		];

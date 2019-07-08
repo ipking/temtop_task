@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2294d003-c8c3-4eec-b48b-0d1bfb9b3813" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/TaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/template/index/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/template/index/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller/TaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="85" column="40" lean-forward="true" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+            <state relative-caret-position="558">
+              <caret line="79" column="10" lean-forward="true" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -230,12 +228,12 @@
       <workItem from="1558949928517" duration="3343000" />
       <workItem from="1559012491156" duration="1981000" />
       <workItem from="1559609211806" duration="1532000" />
-      <workItem from="1562548174665" duration="2790000" />
+      <workItem from="1562548174665" duration="3657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9646000" />
+    <option name="totallyTimeSpent" value="10513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -362,8 +360,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="85" column="40" lean-forward="true" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+        <state relative-caret-position="558">
+          <caret line="79" column="10" lean-forward="true" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
         </state>
       </provider>
     </entry>
