@@ -21,15 +21,40 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 	<div class="data-info-box">
 		<div class="homepage-title">任务列表</div>
 		<input type="text" name="sku" value="" placeholder="SKU">
+		<input type="text" name="order_no" value="" placeholder="订单号">
 		<div class="todo-total">
 			<ul>
 				<li>
-					<a id="prd_sku_three_and_one" href="javascript:void(0)">ERP(产品,供应商)系统 三在一中</a>
-					<p id="prd_sku_three_and_one_re"></p>
+					<a id="prd_sku_three_and_one" data-value="sku" href="javascript:void(0)">ERP(产品,供应商)系统 三在一中</a>
+					<p></p>
 				</li>
 				<li>
-					<a id="sale_sku_three_and_one" href="javascript:void(0)">销售系统 三在一中</a>
-					<p id="sale_sku_three_and_one_re"></p>
+					<a id="sale_sku_three_and_one" data-value="sku" href="javascript:void(0)">销售系统 三在一中</a>
+					<p></p>
+				</li>
+			</ul>
+		</div>
+		<div class="todo-total">
+			<ul>
+				<li>
+					<a id="tbs_sale_order_confirm" data-value="order_no" href="javascript:void(0)">TBS系统 审单</a>
+					<p></p>
+				</li>
+				<li>
+					<a id="tbs_sale_order_sync" data-value="order_no" href="javascript:void(0)">TBS系统 同步订单</a>
+					<p></p>
+				</li>
+			</ul>
+		</div>
+		<div class="todo-total">
+			<ul>
+				<li>
+					<a id="oms_sale_order_confirm" data-value="order_no" href="javascript:void(0)">OMS系统 审单</a>
+					<p></p>
+				</li>
+				<li>
+					<a id="oms_sale_order_sync" data-value="order_no" href="javascript:void(0)">OMS系统 同步订单</a>
+					<p></p>
 				</li>
 			</ul>
 		</div>
@@ -41,11 +66,22 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 	seajs.use(["jquery","ywj/uploader","ywj/msg","ywj/net"],function($,UP,Msg,Net){
 		var $sku = $("[name=sku]");
 		//三在一中
-		$("#prd_sku_three_and_one").click(function () {
-			$("#prd_sku_three_and_one_re").html('');
-			var sku = $sku.val();
-			
-			Net.get("<?=ViewBase::getUrl("task/prd_sku_three_and_one")?>",{sku:sku},function (data) {
+		$("a").click(function () {
+			var $p = $(this).closest('li').find('p');
+			$p.html('');
+			var action = $(this).attr('id');
+			var value_list =  $(this).data('value');
+			var strs= new Array(); //定义一数组
+			strs=value_list.split(","); //字符分割
+
+			var param= {};
+			param['action'] = action;
+			for (var i in strs)
+			{
+				param[strs[i]] = $("[name="+strs[i]+"]").val();
+			}
+
+			Net.get("<?=ViewBase::getUrl("task")?>",param,function (data) {
 				if(data.code){
 					Msg.showError(data.message);
 					return false;
@@ -54,23 +90,7 @@ echo ViewBase::getCss('index.css?'.date('ymd'));
 				for(var x in data.data.out){
 					html += data.data.out[x]+'<br >';
 				}
-				$('#prd_sku_three_and_one_re').html(html);
-			})
-		});
-		$("#sale_sku_three_and_one").click(function () {
-			$("#sale_sku_three_and_one_re").html('');
-			var sku = $sku.val();
-			
-			Net.get("<?=ViewBase::getUrl("task/sale_sku_three_and_one")?>",{sku:sku},function (data) {
-				if(data.code){
-					Msg.showError(data.message);
-					return false;
-				}
-				var html= '';
-				for(var x in data.data.out){
-					html += data.data.out[x]+'<br >';
-				}
-				$('#sale_sku_three_and_one_re').html(html);
+				$p.html(html);
 			})
 		});
 	});
